@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.title}}</title>
+</head>
+<body>
+  <!-- форма обращения для добавления пользователя -->
+    <p>
+      Для добавления пользователя в базу данных введите его имя, номер группы и его количество очков.
+      <form action="/Add" method="post" name="AddForm"> 
+        <div>
+          <input type="text" placeholder="Name" name="name"></input>
+        </div>
+        <br /><br />
+         <div>
+          <input type="text" placeholder="Group" name="group"></input>
+        </div>
+        <br /><br />
+        <div>
+          <input type="password" placeholder="Score" name="score"></input>
+        </div>
+        <br /><br />
+        <input type="submit"></input>
+        <br /><br />
+      </form>
+    </p>
+   
+  
+  
+
+
+
+    <p>
+      <!-- Для удаления -->
+      Для удаления пользователя введите его ID.
+      <form action="/Rmv" method="post" name="RmvForm">
+        <div>
+          <input type="text" placeholder="Id" name="id"></input>
+        </div>
+        <br></br>
+        <input type="submit"></input>
+        <br /><br />
+      </form>
+    </p>
+
+    <p>
+    <!-- Для изменения очков -->
+    Для изменения очков пользователя введите его имя и кол-во очков, которое хотите ему задать.
+    <form action="/Cng" method="post" name="CngForm">
+      <div>
+        <input type="text" placeholder="Id" name="id"></input>
+      </div>
+      <br></br>
+      <div>
+        <input type="text" placeholder="Score" name="score"></input>
+      </div>
+      <br></br>
+      <input type="submit"></input>
+      <br /><br />
+    </form>
+  </p>
+
+
+
+  <p>
+    <!-- Для просмотра топ пользователей -->
+    Если хотите просмотреть некоторое кол-во лучших пользователей среди определенной группы, введите их число и номер группы
+    <form action="/Top" method="post" name="TopForm">
+      <div>
+        <input type="text" placeholder="Quantity" name="quantity"></input>
+      </div>
+      <br></br>
+      <div>
+        <input type="text" placeholder="Group" name="group"></input>
+      </div>
+      <br></br>
+      <input type="submit"></input>
+      <br /><br />
+      <table class="table">
+        <th>id</th>
+        <th>Группа</th>
+        <th>Имя</th>
+        <th>Счет</th>
+        <div>{{.Array}}</div>
+      </table>
+      </form>
+      </p>
+      </body>
+</html>
